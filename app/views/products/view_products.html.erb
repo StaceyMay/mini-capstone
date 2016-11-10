@@ -1,0 +1,10 @@
+<h1> Here are some fantastic products!:</h1>
+
+<h1>
+  <% @products.each do |product|%>
+  <h2><%= product.name %></h2>
+  <h3><%= product.price %></h3>
+  <h3><%= product.image %></h3>
+  <h3><%= product.description %></h3>
+  <% end -%>
+</h1>
