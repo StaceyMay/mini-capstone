@@ -1,10 +1,12 @@
 <h1> Here are some fantastic products:</h1>
 
-<h1>
+<h2>
   <% @products.each do |product|%>
-  <h2><%= product.name %></h2>
-  <h3>$<%= product.price %></h3>
-  <h3><%= product.image %></h3>
-  <h3><%= product.description %></h3>
+  <div class="row">
+  <div class="col-md-3"><h2><%= product.name %></h2></div>
+  <div class="col-md-3"><h3>$<%= product.price * 1.1 %></h3></div>
+  <div class="col-md-3"><h3><img src=<%= product.image %>></h3></div>
+  <div class="col-md-3"><h3><%= product.description %></h3></div>
+  </div>
   <% end -%>
-</h1>
+</h2>
