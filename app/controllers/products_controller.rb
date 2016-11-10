@@ -4,8 +4,8 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-def float_of_2_decimal(float_n) 
-  float_n.to_d.round(2, :truncate).to_f
-end
+# def taxed
+#   @taxed = Product.price * 1.1
+# end
 
 end
