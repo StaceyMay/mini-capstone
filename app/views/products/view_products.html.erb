@@ -9,10 +9,13 @@
   <div class="col-md-6">
     <div class="jumbotron">
       <div class="center_everything">
-        <p><%= product.name.capitalize %></p>
-        <p><img src=<%= product.image %>></p>
+        <p><%= link_to product.name.capitalize, "/products/#{product.id}" %></p>
+        <a href="/products/<%= product.id %>">
+        <img src=<%= product.image %>
+        </a>
         <p><%= product.description %></p>
-        <p><a class="btn btn-primary btn-md" href="#" role="button"><%= number_to_currency(product.price * 1.1) %></a></p>
+        <p><a class="btn btn-info btn-md" href="/products/<%= product.id %>" role="button"><%= number_to_currency(product.price * 1.1) %></a>
+        <a class="btn btn-info btn-md" href="/products/<%= product.id %>/edit" role="button">Edit</a></p>
       </div>
     </div>
   </div>
