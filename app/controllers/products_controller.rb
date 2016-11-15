@@ -1,10 +1,7 @@
 class ProductsController < ApplicationController
-
   def view_products
     @view_products = Product.all
   end
-
-
   def index
     @products = Product.all
   end
@@ -21,5 +18,10 @@ class ProductsController < ApplicationController
     @product.save
   end
 
-end
+  def edit
+    @product = Product.find_by(id: params[:id])
+  end
 
+  def update
+  end
+end

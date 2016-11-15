@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   get "/products/new", to: "products#new"
   post "/products/create", to: "products#create"
 
+  get "/products/:id/edit", to: "products#edit"
+  patch "/products/:id", to: "products#update"
+
   get "/products/:id", to: "products#show"
+
   
 end

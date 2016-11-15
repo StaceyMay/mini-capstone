@@ -1,9 +1,6 @@
+<h1> Edit Recipe: </h1>
 
-<div class="center_everything">
-<h1> Please enter your product you would like to sell: </h1>
-
-<form class="form-horizontal">
-<%= form_tag '/products/create', method: :post do %>
+<%= form_tag "/products/#{@product.id}", method: :post do %>
 
 <div class="form-group">
     <%= label_tag :name %>
@@ -29,5 +26,5 @@
   <%= submit_tag "Save product" %>
   </div>
 </div>
-</form>
+
 <% end -%>
