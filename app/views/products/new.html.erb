@@ -1,0 +1,30 @@
+
+<div class="center_everything">
+<h1> Please enter your product you would like to sell: </h1>
+
+<%= form_tag '/products/create', method: :post do %>
+<div>
+  <%= label_tag :name %>:
+  <%=text_field_tag :name %>
+</div>
+
+<div>
+  <%= label_tag :price %>:
+  <%=text_field_tag :price %>
+</div>
+
+<div>
+  <%= label_tag :image, "Please enter image as URL"%>:
+  <%=text_field_tag :image %>
+</div>
+
+<div>
+  <%= label_tag :description %>:
+  <%=text_field_tag :description %>
+</div>
+
+  <div>
+  <%= submit_tag "Save product" %>
+  </div>
+</div>
+<% end -%>

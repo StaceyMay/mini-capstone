@@ -1,0 +1,22 @@
+<title>My Store</title>
+<div class="well well-lg"><center>Welcome to My Store!</center></div>
+<div class="container">
+
+  <div class="row">
+
+  <% @products.each do |product|%>
+
+  <div class="col-md-6">
+    <div class="jumbotron">
+      <div class="center_everything">
+        <p><%= link_to product.name.capitalize, "/products/#{product.id}" %></p>
+        <a href="/products/<%= product.id %>">
+        <img src=<%= product.image %>
+        </a>
+        <p><%= product.description %></p>
+        <p><a class="btn btn-primary btn-md" href="/products/<%= product.id %>" role="button"><%= number_to_currency(product.price * 1.1) %></a></p>
+      </div>
+    </div>
+  </div>
+  <% end -%>
+</div>

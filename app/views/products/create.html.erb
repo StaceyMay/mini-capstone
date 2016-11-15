@@ -1,0 +1,7 @@
+<div class="center_everything">
+<h1> Here is the item you are listing:</h1>
+  <h2> <%= @product.name%> </h2>
+  <img src=<%= @product.image %>></p>
+  <p><%= @product.description %></p>
+  <p><a class="btn btn-primary btn-md" href="#" role="button"><%= number_to_currency(@product.price * 1.1) %></a></p>
+</div>

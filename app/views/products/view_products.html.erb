@@ -1,12 +1,20 @@
-<h1> Here are some fantastic products:</h1>
+<title>My Store</title>
+<div class="well well-lg"><center>Welcome to My Store!</center></div>
+<div class="container">
 
-<h2>
-  <% @products.each do |product|%>
   <div class="row">
-  <div class="col-md-3"><h2><%= product.name %></h2></div>
-  <div class="col-md-3"><h3><%= number_to_currency(product.price * 1.1) %></h3></div>
-  <div class="col-md-3"><h3><img src=<%= product.image %>></h3></div>
-  <div class="col-md-3"><h3><%= product.description %></h3></div>
+
+  <% @view_products.each do |product|%>
+
+  <div class="col-md-6">
+    <div class="jumbotron">
+      <div class="center_everything">
+        <p><%= product.name.capitalize %></p>
+        <p><img src=<%= product.image %>></p>
+        <p><%= product.description %></p>
+        <p><a class="btn btn-primary btn-md" href="#" role="button"><%= number_to_currency(product.price * 1.1) %></a></p>
+      </div>
+    </div>
   </div>
   <% end -%>
-</h2>
+</div>
