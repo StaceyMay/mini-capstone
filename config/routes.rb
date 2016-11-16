@@ -13,5 +13,6 @@ Rails.application.routes.draw do
 
   get "/products/:id", to: "products#show"
 
-  
+  delete "/products/:id", to: "products#destroy"
+
 end

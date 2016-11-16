@@ -27,4 +27,10 @@ class ProductsController < ApplicationController
     product.assign_attributes(name: params[:name], price: params[:price], image: params[:image], description: params[:description])
     product.save
   end
+
+  def destroy
+    @product = Product.find_by(id: params[:id])
+    @product.destroy
+  end
+
 end
