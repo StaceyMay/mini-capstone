@@ -16,6 +16,8 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(name: params[:name], price: params[:price], image: params[:image], description: params[:description])
     @product.save
+
+    flash[:success] = "You have created your item!"
   end
 
   def edit
@@ -27,6 +29,8 @@ class ProductsController < ApplicationController
     product.assign_attributes(name: params[:name], price: params[:price], image: params[:image], description: params[:description])
     product.save
 
+    flash[:info] =  "You have updated your item!"
+
     redirect_to "/products/#{product.id}"
   end
 
@@ -35,6 +39,8 @@ class ProductsController < ApplicationController
     @product.destroy
 
     redirect_to "/products"
+
+    flash[:danger] = "You have deleted the item!"
   end
 
 end
