@@ -1,5 +1,5 @@
 <title>My Store</title>
-<div class="well well-lg"><center>Welcome to My Store!</center></div>
+
 <div class="container">
 
   <div class="row">
@@ -9,12 +9,12 @@
   <div class="col-md-6">
     <div class="jumbotron">
       <div class="center_everything">
-        <p><%= link_to product.name.capitalize, "/products/#{product.id}" %></p>
+        <h2><%= product.name.capitalize%></h2>
         <a href="/products/<%= product.id %>">
         <img src=<%= product.image %>
         </a>
-        <p><%= product.description %></p>
-        <p><a class="btn btn-info btn-md" href="/products/<%= product.id %>" role="button"><%= number_to_currency(product.price * 1.1) %></a>
+        <p><%= truncate(product.description, length: 25) %></p>
+        <p><a class="btn btn-pink btn-md" href="/products/<%= product.id %>" role="button" id="price"><%= number_to_currency(product.price * 1.1) %></a>
       </div>
     </div>
   </div>

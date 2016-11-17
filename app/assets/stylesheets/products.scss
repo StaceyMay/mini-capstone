@@ -9,7 +9,7 @@ img {
 }
 
 h1 {
-  font-family: rockwell;
+  font-family: 'Bungee Shade', cursive;
 }
 
 #money {
@@ -27,5 +27,49 @@ h1 {
 .center_everything {
   text-align: center;
 
+}
+
+body {
+  font-family: 'Bungee Shade', cursive;
+  background-image: url(congruent_outline.png);
+}
+
+a{
+    color: black;
+}
+
+a:hover {
+    color: pink;
+}
+
+.jumbotron {
+  background-image: url(subtle_dots.png);
+  height: 500px;
+}
+
+#input {
+  color: black;
+}
+.show {
+  color: white;
+}
+
+.product_edit {
+  color: pink;
+}
+
+.btn {
+  border-radius: 24px;
+  font-family: 'Orbitron', sans-serif;
+  color: black;
+}
+
+.btn-pink {
+  background: pink;
+}
+
+  .navbar-default {
+    background-color: #E0FFE0;
+    border-color: #CCC9C4;
 }
 
