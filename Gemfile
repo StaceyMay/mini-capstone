@@ -33,6 +33,9 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'faker', '~> 1.6', '>= 1.6.6'
 #Creates fake filler info for you
 
+gem 'seed_dump'
+#seed dump
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -24,5 +24,12 @@ class Product < ApplicationRecord
     return price.to_i + @tax
   end
 
+  def stock_value
+    if stock == true
+      return "In Stock!!"
+    else
+      return "Sorry, out of stock!"
+    end
+  end
 end
 
