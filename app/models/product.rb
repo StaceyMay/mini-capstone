@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  belongs_to :supplier
+  has_many :images  
 
   def dept_list
     return department.split(", ")
@@ -31,5 +33,5 @@ class Product < ApplicationRecord
       return "Sorry, out of stock!"
     end
   end
-end
 
+end

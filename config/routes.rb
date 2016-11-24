@@ -11,8 +11,22 @@ Rails.application.routes.draw do
   get "/products/:id/edit", to: "products#edit"
   patch "/products/:id", to: "products#update"
 
+  delete "/products/:id", to: "products#destroy"
+
   get "/products/:id", to: "products#show"
 
-  delete "/products/:id", to: "products#destroy"
+  post "/search", to: "products#search"
+
+  get "/suppliers", to: "suppliers#index"
+
+  get "/suppliers/new", to: "suppliers#new"
+  post "/suppliers/create", to: "suppliers#create"
+
+  get "/suppliers/:id/edit", to: "suppliers#edit"
+  patch "/suppliers/:id", to: "suppliers#update"
+
+  get "suppliers/:id", to: "suppliers#show"
+
+  delete "products/:id", to: "suppliers#destroy"
 
 end

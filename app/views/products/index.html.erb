@@ -1,4 +1,9 @@
 <title>My Store</title>
+<%=form_tag "/search", class: "search_bar", method: :post do %>
+  <%=label_tag :search %>
+  <%=text_field_tag :search%>
+  <%=submit_tag "Search"%>
+<% end -%>
 
 <div class="container">
 
@@ -11,7 +16,10 @@
       <div class="center_everything">
         <h2><%= product.name.capitalize%></h2>
         <a href="/products/<%= product.id %>">
-        <img src=<%= product.image %>
+        <% if product.images.first %>
+          <img src=<%=product.images.first.image_1%>>
+        <% end %>
+        <!-- <img src=<%= product.image %> -->
         </a>
         <p><%= truncate(product.description, length: 25) %></p>
         <p><a class="btn btn-pink btn-md" href="/products/<%= product.id %>" role="button" id="price"><%= number_to_currency(product.price * 1.09) %></a>

@@ -2,16 +2,47 @@ class ProductsController < ApplicationController
   def view_products
     @view_products = Product.all
   end
+
   def index
-    @products = Product.all
+    sort_column = params[:order]
+    @products = Product.all.order(sort_column)
+    if sort_column == "price_high"
+      @products = Product.all.order(price: :desc)
+    elsif
+      sort_column == "price_low"
+      @products = Product.all.order(price: :asc)
+    elsif sort_column == "name"
+      @products = Product.all.order(name: :asc)
+    end
+
+    discount_items = params[:discount]
+     if discount_items ==  "two"
+        @products = Product.where("price < ?", 2)
+    end
   end
 
   def show
-    @product = Product.find_by(id: params[:id])
+
+    random_item = params[:id]
+      if random_item == "random"
+        @product =Product.order("RANDOM()").first
+      else
+        @product = Product.find_by(id: params[:id])
+      end
+
+      @supplier = Supplier.find_by(id: @product.supplier_id)
   end
 
   def new
   end
+
+  def search
+    @search_term = params[:search]
+    @products = Product.where("name LIKE ?", "%#{@search_term}%")
+
+    render :index
+  end
+
 
   def create
     @product = Product.new(name: params[:name], price: params[:price], image: params[:image], description: params[:description])

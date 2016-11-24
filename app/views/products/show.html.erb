@@ -1,8 +1,11 @@
 
 <div class="center_everything" id="pink">
   <h1 class="product_edit"> <%= @product.name%> </h1>
-  <img src=<%= @product.image %>></p>
   <p ><%= @product.description %></p>
+  <% @product.images.each do |image| %>
+  <img src=<%= image.image_1 %>>
+  <% end -%>
+  <p> Distributed by: <%= @product.supplier.name%> </p>
   <p > Taxes: <%= number_to_currency(@product.tax)%></p>
   <p > Total: <%= number_to_currency(@product.total)%></p>
   <p><%= @product.stock_value %></p>
