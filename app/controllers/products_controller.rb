@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!
+  
+
   def view_products
     @view_products = Product.all
   end
@@ -19,6 +22,16 @@ class ProductsController < ApplicationController
      if discount_items ==  "two"
         @products = Product.where("price < ?", 2)
     end
+
+
+    #session
+    if session[:count] == nil
+      session[:count] =1
+    else 
+      session[:count] += 1
+    end
+
+    @session_counter = session[:count]
   end
 
   def show

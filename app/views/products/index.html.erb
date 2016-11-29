@@ -1,10 +1,10 @@
 <title>My Store</title>
-<%=form_tag "/search", class: "search_bar", method: :post do %>
+<center><%=form_tag "/search", class: "search_bar", method: :post do %>
   <%=label_tag :search %>
   <%=text_field_tag :search%>
   <%=submit_tag "Search"%>
 <% end -%>
-
+</center>
 <div class="container">
 
   <div class="row">
@@ -16,9 +16,9 @@
       <div class="center_everything">
         <h2><%= product.name.capitalize%></h2>
         <a href="/products/<%= product.id %>">
-        <% if product.images.first %>
+<!--         <% if product.images.first %> -->
           <img src=<%=product.images.first.image_1%>>
-        <% end %>
+<!--         <% end %> -->
         <!-- <img src=<%= product.image %> -->
         </a>
         <p><%= truncate(product.description, length: 25) %></p>
@@ -27,4 +27,7 @@
     </div>
   </div>
   <% end -%>
+  <br>
+Total number of visits: <%= @session_counter%>
+<br>
 </div>

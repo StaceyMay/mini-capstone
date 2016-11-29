@@ -36,6 +36,9 @@ gem 'faker', '~> 1.6', '>= 1.6.6'
 gem 'seed_dump'
 #seed dump
 
+gem 'bcrypt', '~> 3.1.7'
+#authentication gem
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

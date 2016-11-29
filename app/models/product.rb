@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
   belongs_to :supplier
   has_many :images  
+  has_many :orders
+
 
   def dept_list
     return department.split(", ")
