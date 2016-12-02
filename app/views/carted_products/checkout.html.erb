@@ -1,0 +1,12 @@
+<% @cartedproducts.each do |cartedproduct| %>
+<div>
+<img src=<%=cartedproduct.product.images.first.image_1%>>
+<%= cartedproduct.product.name%>
+<%= cartedproduct.quantity%>
+</div>
+<% end -%>
+
+<%= button_to "Buy", "/orders", class: "btn btn-info btn-md"%>
+
+
+

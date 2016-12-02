@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
   end
 
   def index
+
+
     sort_column = params[:order]
     @products = Product.all.order(sort_column)
     if sort_column == "price_high"
@@ -16,6 +18,11 @@ class ProductsController < ApplicationController
       @products = Product.all.order(price: :asc)
     elsif sort_column == "name"
       @products = Product.all.order(name: :asc)
+    elsif params[:category]
+      category = Category.find_by(name: params[:category])
+      @products = category.products
+    elsif
+      @products = Product.all
     end
 
     discount_items = params[:discount]

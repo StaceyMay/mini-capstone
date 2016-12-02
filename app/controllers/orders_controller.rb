@@ -4,17 +4,22 @@ class OrdersController < ApplicationController
   end
 
   def create
-  @product = Product.find_by(id: params[:product_id])
-  @order = Order.new(user_id: current_user.id, product_id: @product.id, quantity: params[:quantity])
-  @order.subtotal = @product.price * @order.quantity
+  @products = current_user.carted_products.where("status LIKE ?", "carted")
+  @order = Order.new(user_id: current_user.id)
+  @products.each do |product|
+    @order.subtotal = product.product.price * product.quantity
+  end
   @order.tax = @order.subtotal * 0.09
   @order.total = @order.subtotal + @order.tax
 
-
   @order.save
 
-  flash[:success]= "You have added to cart!"
+  @products.update_all(status: "purchased", order_id: @order.id)
+
+  # flash[:success] = "You have submitted your order!"
 
   end
+
+
 
 end

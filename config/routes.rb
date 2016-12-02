@@ -29,8 +29,11 @@ Rails.application.routes.draw do
 
   delete "products/:id", to: "suppliers#destroy"
 
-  get "/products/:id/order/new", to: "orders#new"
-  post "/products/:id/order", to: "orders#create"
+  post "/orders", to: "orders#create"
+
+  post "/cartedproducts", to: "carted_products#create"
+
+  get "cartedproducts/checkout", to: "carted_products#checkout"
 
   get "/products/:id/image/new", to: "images#new"
   post "/products/:id/image", to: "images#create"
