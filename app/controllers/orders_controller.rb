@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+
   @products = current_user.carted_products.where("status LIKE ?", "carted")
   @order = Order.new(user_id: current_user.id)
   @products.each do |product|
@@ -12,14 +13,16 @@ class OrdersController < ApplicationController
   @order.tax = @order.subtotal * 0.09
   @order.total = @order.subtotal + @order.tax
 
-  @order.save
+  if @order.save
 
-  @products.update_all(status: "purchased", order_id: @order.id)
+    @products.update_all(status: "purchased", order_id: @order.id)
+    session[:order_id] = @order.id
 
-  # flash[:success] = "You have submitted your order!"
-
+  end 
+  redirect_to "/orders/#{@order.id}"
   end
 
-
-
+  def show
+    @order = Order.find(params[:id])
+  end
 end

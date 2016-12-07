@@ -41,6 +41,8 @@
             <li><a href="/products?discount=two">Discounted Items</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="/products/random">Random Item!!!</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/products/new">Add New Item!</a></li>
           </ul>
         </li>
       </ul>
@@ -69,7 +71,11 @@
         <% else %>
         <li><a href="/login">Login</a></li>
         <% end %>
-        <li><a href="/products/new">Add New Item!</a></li>
+        <% if current_user%>
+        <li>
+        <a href="/cartedproducts/checkout">Checkout (<%=@cart_count %>)</a>
+        </li>
+        <%end%>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -86,7 +92,7 @@
       </div>
     </div>
       <% end -%>
-      
+
     <%= yield %>
   </body>
 </html>

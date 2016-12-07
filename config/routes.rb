@@ -25,15 +25,17 @@ Rails.application.routes.draw do
   get "/suppliers/:id/edit", to: "suppliers#edit"
   patch "/suppliers/:id", to: "suppliers#update"
 
-  get "suppliers/:id", to: "suppliers#show"
+  get "/suppliers/:id", to: "suppliers#show"
 
-  delete "products/:id", to: "suppliers#destroy"
+  delete "/products/:id", to: "suppliers#destroy"
 
   post "/orders", to: "orders#create"
 
-  post "/cartedproducts", to: "carted_products#create"
+  get "/orders/:id", to: "orders#show"
 
-  get "cartedproducts/checkout", to: "carted_products#checkout"
+  post "/cartedproducts", to: "carted_products#create"
+  get "/cartedproducts/checkout", to: "carted_products#checkout"
+  post "/cartedproducts/delete/:id", to: "carted_products#destroy"
 
   get "/products/:id/image/new", to: "images#new"
   post "/products/:id/image", to: "images#create"

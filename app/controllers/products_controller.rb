@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
+  before_action :current_user_admin, only: [:new, :edit, :create, :update, :destroy] 
   
 
   def view_products
@@ -54,6 +55,7 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
   end
 
   def search
@@ -65,10 +67,13 @@ class ProductsController < ApplicationController
 
 
   def create
-    @product = Product.new(name: params[:name], price: params[:price], image: params[:image], description: params[:description])
-    @product.save
+    @product = Product.new(name: params[:name], price: params[:price], image: params[:image], description: params[:description], supplier_id: params[:supplier_id][:supplier_id] )
+    if @product.save
+      flash[:success] = "You have created your item!"
+    else
+      render :new
+    end
 
-    flash[:success] = "You have created your item!"
   end
 
   def edit

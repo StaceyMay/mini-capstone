@@ -1,4 +1,4 @@
-<%= form_tag '/products/:id/images', method: :post do %>
+<%= form_tag '/products/:id/image', method: :post do %>
   <div>
   <%= label_tag :image_1%>
   <%= text_field_tag :image_1 %>
@@ -7,7 +7,7 @@
 
   <div>
   <%= label_tag :product_id%>
-  <%= collection_select :product, :product_id, Product.all, :id, :name %>
+  <%= collection_select :product_id, :product_id, Product.all, :id, :name %>
   </div>
 
   <div>

@@ -1,6 +1,5 @@
 <div class="center_everything">
 <h1> You have ordered your items! </h1>
 
-<h3> Order Total: <%=number_to_currency(@order.total)%></h3>
-
+<%= button_to "Review Order", "/orders/:id" %>
 <p><a class="btn btn-info btn-md" href="/products" role="button">Click Here to Go Home</a></p>

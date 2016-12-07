@@ -1,5 +1,6 @@
 
 <div class="center_everything" >
+
 <h1 class="product_edit"> Edit Product: <%= @product.name%> </h1>
 
 <%= form_tag "/products/#{@product.id}", method: :patch do %>
@@ -21,8 +22,12 @@
     <%= label_tag :description %>:
     <%=text_area_tag :description, @product.description %>
     </div>
+    <div>
+    <%= label_tag :supplier_id, "Supplier" %>:
+    <%= collection_select :supplier_id, @product.supplier_id%>
+    </div>
   <div>  
-  <%= submit_tag "Save Changes" %>
+  <%= submit_tag "Save Changes", class: "btn btn-info btn-md"%>
   </div>
 <% end -%>
 

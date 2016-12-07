@@ -66,10 +66,13 @@
   <%= submit_tag "Add to Cart", class: "btn btn-danger" %>
   </div>
   <%end%>
-
+  <%if current_user.admin %>
   <p ><a class="btn btn-info btn-md" href="/products/<%= @product.id %>/edit" role="button">Edit</a>
   <%= link_to "Delete Item", "/products/#{@product.id}", method: :delete , class: "btn btn-danger"%></p>
-  <p><a class="btn btn-info btn-md" href="/products" role="button">Click Here to Go Home</a></p>
+  <div>
+  <a class="btn btn-info btn-md" href="/products" role="button">Click Here to Go Home</a>
+  </div>
+  <%end%>
 </div>
 
 <h4>Added: <%= @product.pretty_time%></h4>

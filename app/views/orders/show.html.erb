@@ -1,0 +1,17 @@
+<h1> Order Review: </h1>
+
+<% @order.carted_products.each do |unit| %>
+  <h3>
+  <%= unit.product.name %>
+  Quantity: <%= unit.quantity%>
+  </h3>
+<% end -%>
+<div>
+Your Subtotal: <%= number_to_currency(@order.subtotal)%>
+</div>
+<div>
+Your Tax: <%= number_to_currency(@order.tax)%>
+</div>
+<div>
+Your Total: <%= number_to_currency(@order.total)%>
+</div>
